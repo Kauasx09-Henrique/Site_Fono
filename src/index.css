@@ -1,0 +1,110 @@
+/* Em src/index.css */
+:root {
+  --verde-principal: #91B5A3;
+  --verde-escuro: #6d8d7d;
+  --rosa-detalhe: #DDB7AC;
+  --dourado: #B8860B;
+  --dourado-claro: #d4a844;
+  --branco-puro: #FFFFFF;
+  --texto-principal: #333333;
+  --texto-claro: #666666;
+  --cinza-claro: #f5f5f5;
+  --cinza-medio: #e0e0e0;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --sombra-intensa: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%; /* Alterado para 100% (1rem = 16px) */
+  height: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--branco-puro);
+  color: var(--texto-principal);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem; /* Tamanho base 16px */
+  line-height: 1.6; /* Melhor espaçamento para leitura */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Tipografia - Tamanhos maiores para desktop */
+h1 {
+  font-size: 2.5rem; /* 40px */
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem; /* 32px */
+}
+
+h3 {
+  font-size: 1.75rem; /* 28px */
+}
+
+h4 {
+  font-size: 1.5rem; /* 24px */
+}
+
+p, li, a {
+  font-size: 1.125rem; /* 18px para melhor legibilidade */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* Largura máxima aumentada */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Ajustes para telas grandes */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Ajustes para mobile (somente quando necessário) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  p, li, a {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
