@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowRight, FaCalendarAlt, FaChild, FaMicrophone, FaBrain } from 'react-icons/fa';
+import { FaArrowRight, FaCalendarAlt, FaChild, FaMicrophone, FaBrain, FaHeart, FaSmile, FaUsers } from 'react-icons/fa';
 import './style/Hero.css';
 
 const Hero = () => {
@@ -8,6 +8,12 @@ const Hero = () => {
       <div className="hero-background">
         <div className="hero-overlay">
           <div className="hero-pattern"></div>
+          <div className="floating-shapes">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
+            <div className="shape shape-4"></div>
+          </div>
         </div>
       </div>
       
@@ -29,16 +35,31 @@ const Hero = () => {
           
           <div className="hero-stats">
             <div className="stat">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Pacientes Atendidos</span>
+              <div className="stat-icon">
+                <FaUsers />
+              </div>
+              <div className="stat-content">
+                <span className="stat-number">500+</span>
+                <span className="stat-label">Pacientes Atendidos</span>
+              </div>
             </div>
             <div className="stat">
-              <span className="stat-number">15+</span>
-              <span className="stat-label">Anos de Experiência</span>
+              <div className="stat-icon">
+                <FaHeart />
+              </div>
+              <div className="stat-content">
+                <span className="stat-number">15+</span>
+                <span className="stat-label">Anos de Experiência</span>
+              </div>
             </div>
             <div className="stat">
-              <span className="stat-number">98%</span>
-              <span className="stat-label">Satisfação</span>
+              <div className="stat-icon">
+                <FaSmile />
+              </div>
+              <div className="stat-content">
+                <span className="stat-number">98%</span>
+                <span className="stat-label">Satisfação</span>
+              </div>
             </div>
           </div>
           
@@ -59,6 +80,9 @@ const Hero = () => {
           <div className="main-visual">
             <div className="image-placeholder">
               <div className="circle-shape"></div>
+              <div className="decoration-element elem-1"></div>
+              <div className="decoration-element elem-2"></div>
+              <div className="decoration-element elem-3"></div>
             </div>
           </div>
           
