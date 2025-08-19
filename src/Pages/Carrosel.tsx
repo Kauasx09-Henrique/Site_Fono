@@ -4,7 +4,7 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './style/Carrossel.css';
+import './style/Carrosel.css';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 const testimonialsData = [
