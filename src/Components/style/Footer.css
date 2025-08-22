@@ -1,184 +1,129 @@
-:root {
-  --verde-principal: #91B5A3;
-  --verde-escuro: #6d8d7d;
-  --rosa-detalhe: #DDB7AC;
-  --dourado: #B8860B;
-  --branco-puro: #FFFFFF;
-  --texto-principal: #333333;
-  --texto-claro: #666666;
-  --cinza-claro: #f5f5f5;
-  --cinza-medio: #e0e0e0;
-}
+/* As variáveis de cores devem estar no seu arquivo principal de CSS ou no :root do Header.css */
+/* :root {
+  --cor-verde: #91B5A3;
+  --cor-rosa: #DDB7AC;
+  --cor-texto-escuro: #4a4a4a;
+  --cor-branca: #FFFFFF;
+} */
 
+/* ESTILO GERAL DO FOOTER */
 .footer {
-  background-color: var(--verde-principal);
-  color: var(--branco-puro);
-  padding: clamp(3rem, 6vw, 5rem) 0 0;
-  position: relative;
+  background-color: var(--cor-verde);
+  color: var(--cor-branca);
+  padding: 60px 0 30px;
 }
 
 .footer-container {
-  max-width: min(95%, 1200px);
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: clamp(2rem, 4vw, 3rem);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+  gap: 40px; /* Espaço entre as colunas */
+  margin-bottom: 40px;
 }
 
-.footer-brand {
-  margin-bottom: 1.5rem;
+/* COLUNAS DO FOOTER */
+.footer-brand,
+.footer-column {
+  flex: 1; /* Faz com que as colunas dividam o espaço */
+  min-width: 220px; /* Largura mínima antes de quebrar a linha */
 }
 
 .footer-logo {
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--branco-puro);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.footer-profession {
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-  margin-bottom: 0.3rem;
-  opacity: 0.9;
-}
-
+.footer-profession,
 .footer-crfa {
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
-  opacity: 0.8;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
 }
 
 .footer-title {
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  position: relative;
-  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--cor-branca);
 }
 
-.footer-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background-color: var(--dourado);
-}
-
+/* LISTAS DE LINKS */
 .footer-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.footer-column ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.footer-column li {
-  margin-bottom: clamp(0.6rem, 1.5vw, 1rem);
+.footer-links li {
+  margin-bottom: 12px;
 }
 
-.footer-column a {
-  color: var(--branco-puro);
+.footer-links a,
+.footer-links p,
+.footer-links span {
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  font-size: clamp(0.9rem, 1.6vw, 1rem);
-  opacity: 0.8;
   transition: all 0.3s ease;
-  display: inline-block;
+  cursor: pointer;
 }
 
-.footer-column a:hover {
-  opacity: 1;
-  transform: translateX(5px);
-  color: var(--dourado);
+.footer-links a:hover {
+  color: var(--cor-rosa);
+  padding-left: 5px; /* Efeito sutil no hover */
 }
 
-.footer-social {
-  margin-top: 0.5rem;
-}
-
+/* ÍCONES DE REDES SOCIAIS */
 .social-icons {
   display: flex;
-  gap: 1.2rem;
-  margin-top: 1.5rem;
+  gap: 20px;
 }
 
 .social-icon {
-  color: var(--branco-puro);
-  background-color: rgba(255, 255, 255, 0.1);
-  width: clamp(2.5rem, 5vw, 3rem);
-  height: clamp(2.5rem, 5vw, 3rem);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--cor-branca);
+  font-size: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background-color: var(--dourado);
-  transform: translateY(-5px);
+  color: var(--cor-rosa);
+  transform: translateY(-3px); /* Efeito de levantar o ícone */
 }
 
+/* PARTE INFERIOR DO FOOTER */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: clamp(1.5rem, 3vw, 2rem) 0;
-}
-
-.footer-copyright {
   text-align: center;
-  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-  opacity: 0.8;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .made-with {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 6px;
+  margin-top: 10px;
 }
 
 .heart-icon {
-  color: var(--rosa-detalhe);
-  font-size: 0.9rem;
+  color: var(--cor-rosa);
+  font-size: 1rem;
 }
 
-/* Responsividade Avançada */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-social {
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-links {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .footer {
-    padding-top: clamp(2.5rem, 6vw, 3.5rem);
-  }
-  
   .social-icons {
     justify-content: center;
   }

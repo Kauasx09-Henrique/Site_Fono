@@ -1,374 +1,185 @@
+/* Definindo as cores da sua paleta como variáveis */
 :root {
-  --verde-principal: #91B5A3;
-  --verde-escuro: #6d8d7d;
-  --rosa-detalhe: #DDB7AC;
-  --dourado: #B8860B;
-  --dourado-claro: #d4a844;
-  --branco-puro: #FFFFFF;
-  --texto-principal: #333333;
-  --texto-claro: #666666;
-  --cinza-claro: #f5f5f5;
-  --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --sombra-intensa: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --cor-verde: #91B5A3;
+  --cor-rosa: #DDB7AC;
+  --cor-texto-escuro: #4a4a4a;
+  --cor-branca: #FFFFFF;
+  --sombra-suave: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Top Bar - Contatos */
-.top-bar {
-  background-color: var(--verde-principal);
-  color: var(--branco-puro);
-  padding: clamp(0.3rem, 1vw, 0.5rem) 0;
-  font-size: clamp(0.75rem, 2vw, 0.9rem);
-}
-
-.top-bar .container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
-.contact-info {
-  display: flex;
-  gap: clamp(0.8rem, 3vw, 1.5rem);
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.contact-info a {
-  color: var(--branco-puro);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  transition: all 0.3s ease;
-  padding: 0.2rem 0;
-}
-
-.contact-info a:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
-
-.contact-icon {
-  margin-right: clamp(0.3rem, 1vw, 0.5rem);
-  font-size: clamp(0.7rem, 2vw, 0.9rem);
-}
-
-/* Main Header */
+/* ESTILO GERAL DO HEADER */
 .main-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background-color: var(--branco-puro);
-  box-shadow: var(--sombra);
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  transition: all 0.3s ease;
+  padding: 15px 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .main-header.scrolled {
-  box-shadow: var(--sombra-intensa);
-  background-color: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(5px);
+  background-color: var(--cor-branca);
+  box-shadow: var(--sombra-suave);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(0.8rem, 2vw, 1.2rem) 0;
-  max-width: min(95%, 1400px);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
-/* Logo */
-.logo a {
+/* LOGO */
+.logo {
   text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-}
-
-.logo a:hover {
-  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .logo-name {
-  font-size: clamp(1.4rem, 4vw, 1.9rem);
-  font-weight: 700;
-  color: var(--verde-principal);
-  line-height: 1.1;
-  transition: color 0.3s ease;
+  display: block;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: var(--cor-verde);
 }
 
 .logo-profession {
-  font-size: clamp(0.7rem, 2vw, 0.95rem);
-  color: var(--dourado);
-  font-weight: 500;
-  letter-spacing: clamp(0.5px, 0.2vw, 1px);
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  color: var(--cor-texto-escuro);
+  letter-spacing: 1px;
 }
 
-/* Desktop Navigation */
+/* NAVEGAÇÃO DESKTOP */
 .desktop-nav ul {
-  display: flex;
-  gap: clamp(1rem, 2vw, 2.5rem);
+  margin: 0;
+  padding: 0;
   list-style: none;
+  display: flex;
+  gap: 30px;
 }
 
 .desktop-nav a {
-  color: var(--texto-principal);
   text-decoration: none;
+  color: var(--cor-texto-escuro);
   font-weight: 500;
+  padding-bottom: 5px;
   position: relative;
-  padding: 0.5rem 0;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
+/* Efeito de linha sob o link */
 .desktop-nav a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--dourado);
-  transition: width 0.3s ease, opacity 0.3s ease;
-}
-
-.desktop-nav a:hover {
-  color: var(--verde-principal);
-}
-
-.desktop-nav a:hover::after {
   width: 100%;
+  height: 2px;
+  background-color: var(--cor-rosa);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
-/* CTA Button */
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  color: var(--cor-rosa);
+}
+
+
+/* BOTÃO DE AGENDAMENTO */
 .btn-agendar {
-  background-color: var(--dourado);
-  color: var(--branco-puro);
-  padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
-  border-radius: clamp(4px, 0.5vw, 6px);
+  background-color: var(--cor-rosa);
+  color: var(--cor-branca);
+  padding: 12px 24px;
+  border-radius: 50px; /* Botão mais arredondado */
   text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-flex;
-  align-items: center;
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
-  border: 2px solid transparent;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(221, 183, 172, 0.4); /* Sombra rosa */
+  cursor: pointer;
 }
 
 .btn-agendar:hover {
-  background-color: var(--dourado-claro);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(184, 134, 11, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(221, 183, 172, 0.6);
 }
 
-/* Mobile Menu Button */
-.mobile-menu-button {
+
+/* MENU MOBILE - OCULTO EM TELAS GRANDES */
+.mobile-menu-icon {
   display: none;
   background: none;
   border: none;
-  color: var(--verde-principal);
-  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  font-size: 2rem;
+  color: var(--cor-verde);
   cursor: pointer;
-  padding: 0.5rem;
-  transition: all 0.3s ease;
-  z-index: 1200;
 }
 
-.mobile-menu-button:hover {
-  color: var(--dourado);
-  transform: scale(1.1);
-}
-
-/* Mobile Navigation */
 .mobile-nav {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: min(85%, 320px);
-  height: 100vh;
-  background-color: var(--branco-puro);
-  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
-  z-index: 1100;
-  transition: left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  padding: 5rem 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
+  display: none;
 }
 
-.mobile-nav.open {
-  left: 0;
-}
 
-.mobile-nav ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 2rem;
-}
-
-.mobile-nav li {
-  margin-bottom: 1.8rem;
-}
-
-.mobile-nav a {
-  color: var(--texto-principal);
-  text-decoration: none;
-  font-size: clamp(1.1rem, 3vw, 1.3rem);
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: block;
-  padding: 0.5rem;
-  border-radius: 6px;
-}
-
-.mobile-nav a:hover {
-  color: var(--branco-puro);
-  background-color: var(--verde-principal);
-  padding-left: 1rem;
-}
-
-.mobile-contact {
-  margin-top: auto;
-  padding-top: 2rem;
-  border-top: 1px solid var(--cinza-claro);
-}
-
-.mobile-contact-link {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.2rem;
-  color: var(--texto-principal);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.mobile-contact-link:hover {
-  color: var(--verde-principal);
-  transform: translateX(5px);
-}
-
-.mobile-contact-link svg {
-  margin-right: 0.8rem;
-  color: var(--verde-principal);
-  font-size: 1.1rem;
-}
-
-/* Overlay for mobile menu */
-.mobile-nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1050;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  backdrop-filter: blur(3px);
-}
-
-.mobile-nav-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Responsividade Avançada */
-@media (max-width: 1024px) {
-  .desktop-nav ul {
-    gap: 1.2rem;
-  }
-}
-
+/* RESPONSIVIDADE - Ajustes para telas menores */
 @media (max-width: 992px) {
-  .desktop-nav {
+  /* Esconde o menu desktop e o botão */
+  .desktop-nav,
+  .cta-button {
     display: none;
   }
-  
-  .mobile-menu-button {
+
+  /* Mostra o ícone de menu */
+  .mobile-menu-icon {
     display: block;
   }
-  
-  .cta-button {
-    margin-left: auto;
-    margin-right: 1rem;
-  }
-}
 
-@media (max-width: 768px) {
-  .top-bar .container {
-    justify-content: center;
-    padding: 0 1rem;
-  }
-  
-  .contact-info {
-    gap: 0.8rem;
-    justify-content: center;
-  }
-  
-  .header-content {
-    padding: 0 1.2rem;
-  }
-  
-  .logo-name {
-    font-size: 1.5rem;
-  }
-  
+  /* Estilo do menu dropdown */
   .mobile-nav {
-    width: min(90%, 300px);
-    padding: 6rem 1.5rem 2rem;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-branca);
+    box-shadow: var(--sombra-suave);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
   }
-}
 
-@media (max-width: 576px) {
-  .top-bar {
-    padding: 0.3rem 0;
+  .mobile-nav.open {
+    max-height: 500px; /* Altura suficiente para os links */
   }
-  
-  .contact-info {
-    flex-direction: column;
-    gap: 0.4rem;
-    align-items: center;
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+    text-align: center;
   }
-  
-  .contact-info a {
-    padding: 0.1rem 0;
-  }
-  
-  .logo-name {
-    font-size: 1.3rem;
-  }
-  
-  .logo-profession {
-    font-size: 0.75rem;
-  }
-  
-  .btn-agendar {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.85rem;
-  }
-  
-  .mobile-nav {
-    padding: 5rem 1rem 1.5rem;
-  }
-  
+
   .mobile-nav li {
-    margin-bottom: 1.5rem;
+    padding: 15px 0;
   }
-}
-
-@media (max-width: 400px) {
-  .logo-name {
+  
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
     font-size: 1.2rem;
-  }
-  
-  .mobile-menu-button {
-    padding: 0.3rem;
-  }
-  
-  .mobile-nav {
-    width: 85%;
+    cursor: pointer;
   }
 }

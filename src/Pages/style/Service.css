@@ -1,181 +1,113 @@
-:root {
-  --verde-principal: #91B5A3;
-  --rosa-detalhe: #DDB7AC;
-  --dourado: #B8860B;
-  --branco-puro: #FFFFFF;
-  --texto-principal: #333333;
-  --texto-claro: #666666;
-  --cinza-claro: #f5f5f5;
-  --cinza-medio: #e0e0e0;
-  --sombra: 0 5px 15px rgba(0, 0, 0, 0.05);
-  --sombra-hover: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
+/* As variáveis de cores devem estar no seu arquivo principal de CSS ou no :root do Header.css */
 
 .services-section {
-  padding: clamp(3rem, 6vw, 6rem) 0;
-  background-color: var(--cinza-claro);
+  padding: 100px 0;
+  background-color: #fdfcfa; /* Mesmo off-white do Hero para consistência */
 }
 
-.container {
-  max-width: min(90%, 1200px);
-  margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
+/* CABEÇALHO DA SEÇÃO */
 .section-header {
   text-align: center;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 60px;
 }
 
-.section-title {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: var(--verde-principal);
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  position: relative;
+.section-tag {
   display: inline-block;
+  color: var(--cor-rosa);
+  background-color: rgba(221, 183, 172, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background-color: var(--dourado);
-  border-radius: 3px;
+.section-header .section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--cor-texto-escuro);
+  margin-bottom: 15px;
 }
 
-.section-subtitle {
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  color: var(--texto-claro);
-  max-width: min(90%, 700px);
+.section-header .section-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
+/* GRID DE CARDS */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding: 0.5rem;
+  /* Cria colunas responsivas: tenta encaixar cards de 300px, 
+     se não couber, quebra a linha. Mínimo 1, máximo 3 colunas. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
+/* ESTILO INDIVIDUAL DO CARD */
 .service-card {
-  background: var(--branco-puro);
-  border-radius: clamp(10px, 2vw, 14px);
-  padding: clamp(1.5rem, 3vw, 2.2rem);
+  background-color: var(--cor-branca);
+  border-radius: 16px;
+  padding: 40px 30px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--sombra);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--sombra-suave);
+  border-bottom: 4px solid transparent; /* Borda inicial invisível */
+  transition: all 0.3s ease-in-out;
 }
 
 .service-card:hover {
-  transform: translateY(clamp(-8px, -1vw, -12px));
-  box-shadow: var(--sombra-hover);
-  border-color: var(--rosa-claro);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border-bottom-color: var(--cor-rosa); /* Borda aparece no hover */
 }
 
+/* ÍCONE */
 .card-icon-container {
-  width: clamp(70px, 10vw, 90px);
-  height: clamp(70px, 10vw, 90px);
-  margin: 0 auto clamp(1rem, 2vw, 1.8rem);
+  width: 70px;
+  height: 70px;
+  background-color: var(--cor-verde);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(var(--card-color), 0.08);
-  color: var(--card-color);
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  margin: 0 auto 25px auto;
   transition: all 0.3s ease;
-  border: 2px solid rgba(var(--card-color), 0.15);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  color: var(--cor-branca);
 }
 
 .service-card:hover .card-icon-container {
-  transform: scale(1.1);
-  background-color: rgba(var(--card-color), 0.15);
+  background-color: var(--cor-rosa);
+  transform: scale(1.1) rotate(10deg);
 }
 
+/* TEXTO DO CARD */
 .card-title {
-  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-  color: var(--verde-principal);
-  margin-bottom: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: 1.4rem;
   font-weight: 600;
+  color: var(--cor-texto-escuro);
+  margin-bottom: 15px;
 }
 
 .card-description {
-  color: var(--texto-claro);
-  line-height: 1.7;
-  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
-.card-hover-effect {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: clamp(3px, 0.5vw, 5px);
-  background: linear-gradient(90deg, var(--verde-principal), var(--dourado));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease-out;
+/* RODAPÉ DO CARD */
+.card-footer {
+  font-weight: 600;
+  color: var(--cor-verde);
+  opacity: 0; /* Começa invisível */
+  transition: opacity 0.3s ease;
 }
 
-.service-card:hover .card-hover-effect {
-  transform: scaleX(1);
-}
-
-/* Responsividade Específica */
-@media (max-width: 768px) {
-  .cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .service-card {
-    padding: 1.8rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 0 1.2rem;
-  }
-  
-  .cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    gap: 1.2rem;
-  }
-  
-  .service-card {
-    padding: 1.6rem 1.2rem;
-  }
-  
-  .card-icon-container {
-    width: 65px;
-    height: 65px;
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .section-title {
-    font-size: 1.6rem;
-  }
-  
-  .card-title {
-    font-size: 1.1rem;
-  }
-  
-  .card-description {
-    font-size: 0.85rem;
-  }
+.service-card:hover .card-footer {
+  opacity: 1; /* Aparece no hover */
 }
