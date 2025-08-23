@@ -149,7 +149,12 @@
   height: 85%;
   border-radius: 50%;
   background-color: var(--cor-verde);
-  /* Coloque sua imagem aqui como background-image se quiser */
+
+  background-image: url("../../../public/Mulher_base.jpg");
+  background-size: cover;       /* Garante que a imagem cubra todo o círculo */
+  background-position: center;  /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+
 }
 
 /* CARDS DE SERVIÇOS */
